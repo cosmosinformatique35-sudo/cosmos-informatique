@@ -1,0 +1,38 @@
+[
+  {
+    "categorie": "informatique",
+    "nom": "SSD 256GB High Speed",
+    "prix": "18.500 FCFA",
+    "image": "fas fa-sd-card"
+  },
+  {
+    "categorie": "informatique",
+    "nom": "Disque Dur Externe 1TB",
+    "prix": "35.000 FCFA",
+    "image": "fas fa-hdd"
+  },
+  {
+    "categorie": "smartphones",
+    "nom": "Coque de protection iPhone",
+    "prix": "8.000 FCFA",
+    "image": "fas fa-mobile-alt"
+  },
+  {
+    "categorie": "smartphones",
+    "nom": "Chargeur Rapide 25W",
+    "prix": "12.500 FCFA",
+    "image": "fas fa-bolt"
+  },
+  {
+    "categorie": "reseaux",
+    "nom": "Routeur TP-Link Wi-Fi 6",
+    "prix": "25.000 FCFA",
+    "image": "fas fa-wifi"
+  },
+  {
+    "categorie": "reseaux",
+    "nom": "Câble Ethernet Cat6 (10m)",
+    "prix": "5.000 FCFA",
+    "image": "fas fa-network-wired"
+  }
+]
