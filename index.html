@@ -1,171 +1,45 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmos Informatique | Boutique & Expertise Tech</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --white: #ffffff;
-            --text-gray: #64748b;
-            --whatsapp: #25d366;
-            --transition: all 0.3s ease;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
-
-        nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--dark); text-decoration: none; }
-        .logo span { color: var(--primary); }
-
-        .hero { 
-            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
-            color: var(--white); padding: 100px 20px 80px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; }
-        .btn { display: inline-block; padding: 14px 28px; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 8px; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
-        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
-
-        .section-padding { padding: 80px 5%; max-width: 1200px; margin: auto; }
-        .underline { width: 60px; height: 4px; background: var(--primary); margin: 10px auto 30px; border-radius: 2px; }
-        h2 { text-align: center; font-size: 2.2rem; }
-
-        /* SECTION A PROPOS */
-        .about { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; padding: 60px 5%; max-width: 1200px; margin: auto; }
-        .about-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); flex: 1; min-width: 300px; }
-        .about-text { flex: 1; min-width: 300px; }
-
-        /* BOUTIQUE / CATALOGUE */
-        .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
-        .product-card { background: var(--white); border-radius: 15px; padding: 20px; text-align: center; transition: var(--transition); border: 1px solid rgba(0,0,0,0.05); position: relative; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.07); }
-        .badge { position: absolute; top: 15px; left: 15px; background: var(--whatsapp); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
-        .product-img { width: 100%; height: 180px; background: #f1f5f9; border-radius: 10px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #cbd5e1; }
-        .product-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--dark); }
-        .product-price { color: var(--primary); font-weight: 700; font-size: 1.2rem; margin-bottom: 15px; }
-        .btn-buy { display: block; width: 100%; padding: 10px; background: var(--light); color: var(--primary); text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition); }
-        .btn-buy:hover { background: var(--primary); color: var(--white); }
-
-        /* PRICING */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .price-card { background: var(--white); padding: 40px; border-radius: 16px; text-align: center; border: 1px solid rgba(0,0,0,0.05); }
-        .price-card.featured { background: var(--dark); color: var(--white); transform: scale(1.05); border: none; }
-        .price { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin: 20px 0; }
-        .featured .price { color: var(--white); }
-
-        iframe { width: 100%; height: 350px; border-radius: 15px; border: 0; margin-top: 20px; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; transition: var(--transition); }
-        footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 40px 20px; margin-top: 50px; }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="#" class="logo">Cosmos<span>.Tech</span></a>
-        <div>
-            <a href="#boutique" style="text-decoration:none; color:var(--dark); margin-right:20px; font-weight:600;">Boutique</a>
-            <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.85rem;">Contact</a>
+<section class="section-padding" id="boutique">
+    <h2>Nos Catégories</h2>
+    <div class="underline"></div>
+    
+    <div class="shop-grid" id="categories-grid">
+        <div class="product-card" onclick="afficherCategorie('informatique')">
+            <div class="product-img"><i class="fas fa-laptop"></i></div>
+            <h3>Informatique</h3>
+            <span class="btn-buy">Voir les articles</span>
         </div>
-    </nav>
-
-    <header class="hero">
-        <h1>Solutions Digitales & Boutique IT</h1>
-        <p>Le partenaire de confiance pour vos logiciels, vos réparations et votre matériel informatique au Sénégal.</p>
-        <a href="#boutique" class="btn">Découvrir la Boutique</a>
-    </header>
-
-    <section class="about">
-        <div style="flex:1; min-width:300px;"><img src="bureau.jpg" alt="Cosmos Bureau"></div>
-        <div class="about-text">
-            <h2>L'Expertise Cosmos</h2>
-            <div class="underline" style="margin-left:0;"></div>
-            <p>De la création d'outils comme <strong>NovaPDF</strong> à la maintenance de vos équipements, nous offrons un service premium adapté aux réalités du marché sénégalais.</p>
-            <p><strong>Cosmos Informatique</strong>, c'est l'assurance d'un travail soigné par un expert passionné.</p>
+        <div class="product-card" onclick="afficherCategorie('reseaux')">
+            <div class="product-img"><i class="fas fa-network-wired"></i></div>
+            <h3>Réseaux</h3>
+            <span class="btn-buy">Voir les articles</span>
         </div>
-    </section>
-
-    <section class="section-padding" id="boutique" style="background: #fff;">
-        <h2>Boutique & Accessoires</h2>
-        <div class="underline"></div>
-        <p style="text-align:center; color:var(--text-gray);">Matériel testé et garanti par nos techniciens.</p>
-        
-        <div class="shop-grid">
-            <div class="product-card">
-                <span class="badge">En stock</span>
-                <div class="product-img"><i class="fas fa-sd-card"></i></div>
-                <h3>SSD 256GB High Speed</h3>
-                <p class="product-price">18.500 FCFA</p>
-                <a href="https://wa.me/221787538500?text=Je%20suis%20intéressé%20par%20le%20SSD%20256GB" class="btn-buy">Commander via WhatsApp</a>
-            </div>
-            <div class="product-card">
-                <span class="badge">En stock</span>
-                <div class="product-img"><i class="fas fa-compact-disc"></i></div>
-                <h3>Clé USB 64GB - Bootable</h3>
-                <p class="product-price">6.500 FCFA</p>
-                <a href="https://wa.me/221787538500?text=Je%20suis%20intéressé%20par%20la%20clé%20USB%2064GB" class="btn-buy">Commander via WhatsApp</a>
-            </div>
-            <div class="product-card">
-                <span class="badge">Promo</span>
-                <div class="product-img"><i class="fas fa-plug"></i></div>
-                <h3>Chargeur Laptop Universel</h3>
-                <p class="product-price">12.000 FCFA</p>
-                <a href="https://wa.me/221787538500?text=Je%20suis%20intéressé%20par%20le%20chargeur%20universel" class="btn-buy">Commander via WhatsApp</a>
-            </div>
-            <div class="product-card">
-                <span class="badge">En stock</span>
-                <div class="product-img"><i class="fas fa-mouse"></i></div>
-                <h3>Souris Sans Fil Pro</h3>
-                <p class="product-price">5.000 FCFA</p>
-                <a href="https://wa.me/221787538500?text=Je%20suis%20intéressé%20par%20la%20souris%20sans%20fil" class="btn-buy">Commander via WhatsApp</a>
-            </div>
+        <div class="product-card" onclick="afficherCategorie('smartphones')">
+            <div class="product-img"><i class="fas fa-mobile-alt"></i></div>
+            <h3>Smartphone & Tablette</h3>
+            <span class="btn-buy">Voir les articles</span>
         </div>
-    </section>
+    </div>
 
-    <section class="section-padding" id="tarifs">
-        <h2>Forfaits Maintenance</h2>
-        <div class="underline"></div>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Essentiel</h3>
-                <div class="price">10.000<span> FCFA</span></div>
-                <p>Installation Windows + Pilotes</p>
+    <div id="produits-liste" style="display:none; margin-top:40px;">
+        <button onclick="retourCategories()" class="btn" style="margin-bottom:20px;">← Retour aux catégories</button>
+        <div class="shop-grid" id="liste-items">
             </div>
-            <div class="price-card featured">
-                <h3>Pack Premium</h3>
-                <div class="price">15.000<span> FCFA</span></div>
-                <p>Système + Office + Nettoyage Pro</p>
-            </div>
-            <div class="price-card">
-                <h3>Pack Dev</h3>
-                <div class="price">7.500<span> FCFA</span></div>
-                <p>Linux + Environnement Code</p>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section-padding" id="contact">
-        <h2>Nous Trouver</h2>
-        <div class="underline"></div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123471.123456789!2d-17.46!3d14.71!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172f5b3c5bb711%3A0x83a0ad379366432!2sDakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2ssn!4v1710000000000!5m2!1sfr!2ssn"></iframe>
-        <div style="text-align:center; margin-top:20px;">
-            <p><strong>📍 Dakar, Sénégal</strong> | 📞 +221 78 753 85 00</p>
-        </div>
-    </section>
+<script>
+// Petite fonction magique pour gérer l'affichage
+function afficherCategorie(cat) {
+    document.getElementById('categories-grid').style.display = 'none';
+    document.getElementById('produits-liste').style.display = 'block';
+    
+    // Ici, le code chargera automatiquement tes articles depuis produits.json
+    console.log("Chargement de la catégorie : " + cat);
+    // Note : Pour un fonctionnement complet, il faudra charger le JSON avec 'fetch'
+}
 
-    <footer>
-        <p>© 2026 Cosmos Informatique - L'Expertise au bout des doigts.</p>
-    </footer>
-
-    <a href="https://wa.me/221787538500" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-</body>
-</html>
+function retourCategories() {
+    document.getElementById('categories-grid').style.display = 'grid';
+    document.getElementById('produits-liste').style.display = 'none';
+}
+</script>
