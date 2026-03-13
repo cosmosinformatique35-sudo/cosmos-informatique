@@ -1,45 +1,137 @@
-<section class="section-padding" id="boutique">
-    <h2>Nos Catégories</h2>
-    <div class="underline"></div>
-    
-    <div class="shop-grid" id="categories-grid">
-        <div class="product-card" onclick="afficherCategorie('informatique')">
-            <div class="product-img"><i class="fas fa-laptop"></i></div>
-            <h3>Informatique</h3>
-            <span class="btn-buy">Voir les articles</span>
-        </div>
-        <div class="product-card" onclick="afficherCategorie('reseaux')">
-            <div class="product-img"><i class="fas fa-network-wired"></i></div>
-            <h3>Réseaux</h3>
-            <span class="btn-buy">Voir les articles</span>
-        </div>
-        <div class="product-card" onclick="afficherCategorie('smartphones')">
-            <div class="product-img"><i class="fas fa-mobile-alt"></i></div>
-            <h3>Smartphone & Tablette</h3>
-            <span class="btn-buy">Voir les articles</span>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmos Informatique | Boutique & Expertise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1e40af; --dark: #0f172a;
+            --light: #f8fafc; --white: #ffffff; --text-gray: #64748b;
+            --whatsapp: #25d366; --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
 
-    <div id="produits-liste" style="display:none; margin-top:40px;">
-        <button onclick="retourCategories()" class="btn" style="margin-bottom:20px;">← Retour aux catégories</button>
-        <div class="shop-grid" id="liste-items">
+        /* Navigation */
+        nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--dark); }
+        .logo span { color: var(--primary); }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: var(--white); padding: 100px 20px 80px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 12px 25px; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 8px; font-weight: 600; transition: var(--transition); border:none; cursor:pointer; }
+
+        /* About Section */
+        .about { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; padding: 80px 5%; max-width: 1200px; margin: auto; }
+        .about-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); flex: 1; min-width: 300px; }
+        .about-text { flex: 1; min-width: 300px; }
+        .underline { width: 50px; height: 4px; background: var(--primary); margin: 15px 0; border-radius: 2px; }
+
+        /* Boutique / Categories */
+        .section-padding { padding: 60px 5%; max-width: 1200px; margin: auto; }
+        .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
+        .category-card, .product-card { background: var(--white); border-radius: 15px; padding: 30px; text-align: center; cursor: pointer; transition: var(--transition); border: 1px solid rgba(0,0,0,0.05); }
+        .category-card:hover, .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .category-card i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        .product-img-box { font-size: 3rem; color: #cbd5e1; margin-bottom: 15px; height: 150px; display: flex; align-items: center; justify-content: center; background: #f1f5f9; border-radius: 10px; }
+        .price { color: var(--primary); font-weight: 700; font-size: 1.2rem; margin: 10px 0; }
+
+        /* Footer & Utils */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; }
+        footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 40px; margin-top: 40px; }
+        #produits-view { display: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Cosmos<span>.Tech</span></a>
+        <a href="#boutique" class="btn" style="font-size: 0.8rem;">Boutique</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Cosmos Informatique</h1>
+        <p>L'expertise technologique au service de votre quotidien au Sénégal.</p>
+    </header>
+
+    <section class="about">
+        <div class="about-img"><img src="bureau.jpg" alt="Cosmos Bureau"></div>
+        <div class="about-text">
+            <h2>Notre Savoir-faire</h2>
+            <div class="underline"></div>
+            <p>Maintenance, réparation et développement de solutions sur mesure (NovaPDF, Gestion de stock).</p>
+        </div>
+    </section>
+
+    <section class="section-padding" id="boutique">
+        <div id="categories-view">
+            <h2 style="text-align: center;">Boutique & Accessoires</h2>
+            <div class="underline" style="margin: 15px auto;"></div>
+            <div class="shop-grid">
+                <div class="category-card" onclick="filtrer('informatique')">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Informatique</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-gray);">PC, SSD, Composants</p>
+                </div>
+                <div class="category-card" onclick="filtrer('smartphones')">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Smartphones</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-gray);">Coques, Chargeurs</p>
+                </div>
+                <div class="category-card" onclick="filtrer('reseaux')">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Réseaux</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-gray);">Routeurs, Câbles</p>
+                </div>
             </div>
-    </div>
-</section>
+        </div>
 
-<script>
-// Petite fonction magique pour gérer l'affichage
-function afficherCategorie(cat) {
-    document.getElementById('categories-grid').style.display = 'none';
-    document.getElementById('produits-liste').style.display = 'block';
-    
-    // Ici, le code chargera automatiquement tes articles depuis produits.json
-    console.log("Chargement de la catégorie : " + cat);
-    // Note : Pour un fonctionnement complet, il faudra charger le JSON avec 'fetch'
-}
+        <div id="produits-view">
+            <button onclick="voirCategories()" class="btn" style="background: var(--text-gray); margin-bottom: 20px;">← Retour</button>
+            <h2 id="titre-cat">Catégorie</h2>
+            <div class="shop-grid" id="container-produits">
+                </div>
+        </div>
+    </section>
 
-function retourCategories() {
-    document.getElementById('categories-grid').style.display = 'grid';
-    document.getElementById('produits-liste').style.display = 'none';
-}
-</script>
+    <footer>
+        <p>© 2026 Cosmos Informatique. Design Moderne & Pro.</p>
+    </footer>
+
+    <a href="https://wa.me/221787538500" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        async function filtrer(catId) {
+            const res = await fetch('produits.json');
+            const produits = await res.json();
+            const container = document.getElementById('container-produits');
+            container.innerHTML = '';
+            
+            const liste = produits.filter(p => p.categorie === catId);
+            document.getElementById('titre-cat').innerText = catId.charAt(0).toUpperCase() + catId.slice(1);
+            
+            liste.forEach(p => {
+                container.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-img-box"><i class="${p.image}"></i></div>
+                        <h3>${p.nom}</h3>
+                        <p class="price">${p.prix}</p>
+                        <a href="https://wa.me/221787538500?text=Je%20veux%20:${p.nom}" class="btn" style="width:100%">Acheter</a>
+                    </div>`;
+            });
+
+            document.getElementById('categories-view').style.display = 'none';
+            document.getElementById('produits-view').style.display = 'block';
+        }
+
+        function voirCategories() {
+            document.getElementById('categories-view').style.display = 'block';
+            document.getElementById('produits-view').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
